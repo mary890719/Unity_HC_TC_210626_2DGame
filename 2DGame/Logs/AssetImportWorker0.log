@@ -1,0 +1,405 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.12f1 (b3b2c6512326) revision 11776710'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.1052; Version 2009; 64bit' Language: 'zh' Physical Memory: 8066 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity2020HC\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/user/Desktop/HC/Unity/Unity_HC_TC_210626_2DGame/2DGame
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53855
+Successfully changed project path to: C:/Users/user/Desktop/HC/Unity/Unity_HC_TC_210626_2DGame/2DGame
+C:/Users/user/Desktop/HC/Unity/Unity_HC_TC_210626_2DGame/2DGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 90.08 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.12f1 (b3b2c6512326)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity2020HC/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/HC/Unity/Unity_HC_TC_210626_2DGame/2DGame/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce MX150 (ID=0x1d10)
+    Vendor:   
+    VRAM:     1983 MB
+    Driver:   27.21.14.6663
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity2020HC/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity2020HC/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity2020HC/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56056
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity2020HC/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.009961 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 75.38 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.925 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.036769 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 149.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.629 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
+Refreshing native plugins compatible for Editor in 1.53 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2560 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 105.6 MB.
+System memory in use after: 105.7 MB.
+
+Unloading 69 unused Assets to reduce memory usage. Loaded Objects now: 2962.
+Total: 13.983800 ms (FindLiveObjects: 0.402700 ms CreateObjectMapping: 0.237000 ms MarkObjects: 12.970500 ms  DeleteObjects: 0.371000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Images/New Project.png
+  artifactKey: Guid(d4b15e0dacb2f6c47b09dc54ba3ccda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/New Project.png using Guid(d4b15e0dacb2f6c47b09dc54ba3ccda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '478b68c4d12de56e042de812d5dc798d') in 0.258902 seconds 
+  Import took 0.269024 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010608 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.48 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.083 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.51 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2555 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 108.7 MB.
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 2972.
+Total: 15.583300 ms (FindLiveObjects: 0.646200 ms CreateObjectMapping: 0.308300 ms MarkObjects: 14.382500 ms  DeleteObjects: 0.243500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 143.798430 seconds.
+  path: Assets/Materials/光點.png
+  artifactKey: Guid(d4b15e0dacb2f6c47b09dc54ba3ccda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/光點.png using Guid(d4b15e0dacb2f6c47b09dc54ba3ccda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c560ff617d7e0effc5273d76c7f879b') in 0.073135 seconds 
+  Import took 0.083407 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.819083 seconds.
+  path: Assets/Materials/光點.mat
+  artifactKey: Guid(b843d16dd6e2e5e4ea5ff46f1262aef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/光點.mat using Guid(b843d16dd6e2e5e4ea5ff46f1262aef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92a15117b586f030873681d9313b180f') in 0.078859 seconds 
+  Import took 0.086269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 81.156990 seconds.
+  path: Assets/Materials/New Project (1).png
+  artifactKey: Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Project (1).png using Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fbc92dfefb596981f4bb827bf6de53b') in 0.027259 seconds 
+  Import took 0.034040 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004696 seconds.
+  path: Assets/Materials/New Project (1).png
+  artifactKey: Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Project (1).png using Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fbc92dfefb596981f4bb827bf6de53b') in 0.018093 seconds 
+  Import took 0.025947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.147637 seconds.
+  path: Assets/Materials/光點.png
+  artifactKey: Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/光點.png using Guid(f2c20c8b2f61cf041a7feb014d6605d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b737743bbfe8cdf4bd0a3264e080b9') in 0.018540 seconds 
+  Import took 0.028098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.353513 seconds.
+  path: Packages/com.unity.purchasing/Icons/LinkBlack.png
+  artifactKey: Guid(33d3dd2c39dfd49a3b2d36b20225624a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.purchasing/Icons/LinkBlack.png using Guid(33d3dd2c39dfd49a3b2d36b20225624a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6773dec06f9e18e47b3cedf3d6d1ab34') in 0.032044 seconds 
+  Import took 0.043099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000543 seconds.
+  path: Packages/com.unity.purchasing/Icons/UnityEngine.Purchasing.IAPButtonIcon.png
+  artifactKey: Guid(55e457740fe60405dac77af143e1a867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.purchasing/Icons/UnityEngine.Purchasing.IAPButtonIcon.png using Guid(55e457740fe60405dac77af143e1a867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b22b6584e36fb8728e429783a965ca0') in 0.028951 seconds 
+  Import took 0.040873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000712 seconds.
+  path: Packages/com.unity.purchasing/Icons/LinkWhite.png
+  artifactKey: Guid(e679a29ca22bc4fa0bd848bd79a42b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.purchasing/Icons/LinkWhite.png using Guid(e679a29ca22bc4fa0bd848bd79a42b79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ade22b1dd2736ac9bbfa7f32daf783a') in 0.031373 seconds 
+  Import took 0.046172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3272.441069 seconds.
+  path: Assets/Materials/光點.mat
+  artifactKey: Guid(b843d16dd6e2e5e4ea5ff46f1262aef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/光點.mat using Guid(b843d16dd6e2e5e4ea5ff46f1262aef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b29de1ff353b14f6f65b69299dc9bc5b') in 2.347484 seconds 
+  Import took 2.685858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000559 seconds.
+  path: Assets/Materials/選單背景.mat
+  artifactKey: Guid(e15cd35089c73914a9d72b7104d07b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/選單背景.mat using Guid(e15cd35089c73914a9d72b7104d07b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca1e4abf3b1c04d4b1d5b0d83c17f7a4') in 0.184229 seconds 
+  Import took 0.198751 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.073869 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.496 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.75 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2562 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.3 MB.
+System memory in use after: 109.4 MB.
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 3023.
+Total: 24.655600 ms (FindLiveObjects: 1.171800 ms CreateObjectMapping: 0.404100 ms MarkObjects: 22.197600 ms  DeleteObjects: 0.878500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2638.437074 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets/Texture Importers/TextureImporter_32PPU_PointFilter.preset
+  artifactKey: Guid(4f62a0152df2d416b942f08e2f23785d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets/Texture Importers/TextureImporter_32PPU_PointFilter.preset using Guid(4f62a0152df2d416b942f08e2f23785d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29af7fdb3858aa823139c25a1e5055b1') in 0.253310 seconds 
+  Import took 0.264241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000438 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Animation
+  artifactKey: Guid(24de85c8b199a4dedb817324c9cd0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Animation using Guid(24de85c8b199a4dedb817324c9cd0b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70e551a3e36a0947e5fa2813c4a7aa41') in 0.018104 seconds 
+  Import took 0.028480 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000449 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Unity.2D.PixelPerfect.Samples.asmdef
+  artifactKey: Guid(5c401abef5fdf4442be445501720cde0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Unity.2D.PixelPerfect.Samples.asmdef using Guid(5c401abef5fdf4442be445501720cde0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a1cbb04fef18cfa47fd07336530035b') in 0.014617 seconds 
+  Import took 0.025934 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004092 seconds.
+  path: Assets/Samples/2D Pixel Perfect
+  artifactKey: Guid(49ee67ccd7ff30743a34f8a329e3aa9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect using Guid(49ee67ccd7ff30743a34f8a329e3aa9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48598226609f2c79a5af57c0e2cbaa0f') in 0.014414 seconds 
+  Import took 0.022622 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets/Texture Importers
+  artifactKey: Guid(110c0194d171d433fbd5794f7afd2032) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets/Texture Importers using Guid(110c0194d171d433fbd5794f7afd2032) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '926c1a2bd3ce589a426645435ab84827') in 0.023593 seconds 
+  Import took 0.039589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000436 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes
+  artifactKey: Guid(fbf6a109fe5bd4794b76e23184357943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes using Guid(fbf6a109fe5bd4794b76e23184357943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbca56655a9fa1deb9752c7de03ed93b') in 0.045786 seconds 
+  Import took 0.060138 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000485 seconds.
+  path: Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets
+  artifactKey: Guid(b7381bd17ebd04728b9a225859c7c73b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/2D Pixel Perfect/4.0.1/Sample Scenes and Extras/Scenes/Presets using Guid(b7381bd17ebd04728b9a225859c7c73b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10aabdfbfda9537bdfdcc51e4df2815a') in 0.029173 seconds 
+  Import took 0.048176 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 173.191045 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props
+  artifactKey: Guid(1f08d781702466b438d35aa7938d8030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props using Guid(1f08d781702466b438d35aa7938d8030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0d0ee06777279a5df54c5441e1b0263') in 0.024936 seconds 
+  Import took 0.042694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.512946 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground Darken.png
+  artifactKey: Guid(157cbc340d2b7e64ab85168e80e95550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground Darken.png using Guid(157cbc340d2b7e64ab85168e80e95550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc2fab95ad34d74c9a64aeb484c286e1') in 0.815728 seconds 
+  Import took 0.826067 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.364910 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png
+  artifactKey: Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png using Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bd5a3b5bd8129f3166c5aa0c662e09c') in 0.228239 seconds 
+  Import took 0.242510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.772854 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png
+  artifactKey: Guid(7810966f0f690954c87305933cabf2b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png using Guid(7810966f0f690954c87305933cabf2b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6df726575e22f6b1de712bc2df7808e') in 1.057624 seconds 
+  Import took 1.068997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.143471 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Particle Flame.png
+  artifactKey: Guid(cfcfd3af954eeb54cb041fe6d75a983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Particle Flame.png using Guid(cfcfd3af954eeb54cb041fe6d75a983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29e8cbfd73e5a2118f525430884e0f6a') in 0.169965 seconds 
+  Import took 0.179775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.291226 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Background Grid.png
+  artifactKey: Guid(4525736a9d0538940bce8f13f1227b26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Background Grid.png using Guid(4525736a9d0538940bce8f13f1227b26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1356049b4987f1ab94b0ca3938456c5') in 0.019362 seconds 
+  Import took 0.024798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.869816 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Scene/SC Demo Scene - Village Props.unity
+  artifactKey: Guid(104b0d14871d44f4881963af94f49350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Scene/SC Demo Scene - Village Props.unity using Guid(104b0d14871d44f4881963af94f49350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c49410a3167f9d1161d712d2b9261a21') in 0.024591 seconds 
+  Import took 0.034735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 88.326202 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png
+  artifactKey: Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png using Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29229c3c853dbea8d18bb079390afd38') in 0.338645 seconds 
+  Import took 0.366921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.877298 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png
+  artifactKey: Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png using Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a56c68fecbe1c44ca2dbb319296f5e5') in 0.167619 seconds 
+  Import took 0.175051 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001997 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png
+  artifactKey: Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png using Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a56c68fecbe1c44ca2dbb319296f5e5') in 0.222651 seconds 
+  Import took 0.232014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.564013 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png
+  artifactKey: Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png using Guid(bb35af95735851440927571ef230221b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3bf6ec0aedb9abab7e45d212576349f') in 0.298130 seconds 
+  Import took 0.313758 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016232 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.435 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2562 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.7 MB.
+System memory in use after: 109.8 MB.
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 3265.
+Total: 17.641500 ms (FindLiveObjects: 0.632200 ms CreateObjectMapping: 0.268200 ms MarkObjects: 16.377500 ms  DeleteObjects: 0.360300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
