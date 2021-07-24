@@ -101,12 +101,17 @@ public class Car : MonoBehaviour
         //呼叫方法語法：方法名稱()；
         Drive50();
         Drive100();
-        Drive(150, "咻咻咻");          //呼叫時小括號內的稱為引數
+        Drive(150, "咻咻咻");                              //呼叫時小括號內的稱為引數
         Drive(200, "轟轟轟");
-        Drive(300);                   //有預設值的參數可以不用給引數
-        //Drive(80, "碎石");          //時速 80，音效 咻咻咻，特效 碎石 - 錯誤
-        Drive(80, effect: "碎石");    //使用多個預設值參數時可以使用 參數名稱: 值
+        Drive(300);                                       //有預設值的參數可以不用給引數
+        //Drive(80, "碎石");                              //時速 80，音效 咻咻咻，特效 碎石 - 錯誤
+        Drive(80, effect: "碎石");                        //使用多個預設值參數時可以使用 參數名稱: 值
         Drive(999, "咚咚咚", "爆炸");
+
+        float kg = KG();                                 //區域變數，僅在此括號內使用
+        print("轉為公斤的資訊：" + kg);                    //直接將傳回方法當成值使用
+
+        print("KID 的 BMI：" + BMI(60, 1.68f));
     }
 
     //更新事件：大約一秒60次，60FPS，處理物件移動或者監聽玩家的輸入
@@ -150,6 +155,25 @@ public class Car : MonoBehaviour
         print("開車特效：" + effect);
     }
 
+    /// <summary>
+    /// 噸位轉換成公斤
+    /// </summary>
+    /// <returns>轉為公斤的重量資訊</returns>
+    private float KG()
+    {
+        return weight * 1000;
+    }
+
+    /// <summary>
+    /// 計算BMI
+    /// </summary>
+    /// <param name="weight">體重(公斤)</param>
+    /// <param name="height">身高(公尺)</param>
+    /// <returns>BMI值</returns>
+    private float BMI(float weight, float height)
+    {
+        return weight / (height * height);
+    }
     #endregion
 
 }

@@ -16,4 +16,61 @@ public class Player : MonoBehaviour
     public Rigidbody2D rig;
     public Animator ani;
     #endregion
+
+    #region 事件
+
+    #endregion
+
+    #region 方法
+    /// <summary>
+    /// 移動
+    /// </summary>
+    /// <param name="horizontal">左右數值</param>
+    private void Move(float horizontal)
+    {
+
+    }
+
+    /// <summary>
+    /// 跳躍
+    /// </summary>
+    private void Jump()
+    {
+
+    }
+
+    /// <summary>
+    /// 攻擊
+    /// </summary>
+    private void Attake()
+    {
+
+    }
+
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    /// <param name="damage">造成的傷害</param>
+    public void Damage(float damage)
+    {
+
+    }
+
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    private void Dead()
+    {
+
+    }
+
+    /// <summary>
+    /// 吃道具
+    /// </summary>
+    /// <param name="propName">吃到的道具名稱</param>
+    private void EatProp(string propName)
+    {
+
+    }
+    #endregion
 }
