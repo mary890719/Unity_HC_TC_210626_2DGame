@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6072222906865643435}
   - component: {fileID: 6072222906865643432}
   - component: {fileID: 6072222906865643433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u7BB1\u5B50A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Mass: 30
   m_LinearDrag: 10
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

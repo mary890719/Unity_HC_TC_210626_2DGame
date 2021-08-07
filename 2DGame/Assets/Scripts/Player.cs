@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         //GetComponet<類型>() 泛型方法，可以指定任何類型
         //作用：取得此物件的2D剛體元件
         rig = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
     }
 
     // 一秒約執行 60 次
@@ -97,6 +98,8 @@ public class Player : MonoBehaviour
 
         /** 第二種移動方式：使用專案內的重力 - 較緩慢*/
         rig.velocity = new Vector2(horizontal * speed * Time.fixedDeltaTime, rig.velocity.y);
+        // 控制走路動畫：不等於0時 勾選，等於0時 取消
+        ani.SetBool("walk switch", horizontal != 0);
     }
 
     /// <summary>
@@ -131,6 +134,9 @@ public class Player : MonoBehaviour
         // 判斷式如果只有 一個結束符號； 可以省略大括號
         if (hit) isGround = true;
         else isGround = false;
+
+        //設定動畫參數 與 是否在地面上 相反
+        ani.SetBool("jump switch", !isGround);
 
         print("碰到的物件：" + hit.name);
 
