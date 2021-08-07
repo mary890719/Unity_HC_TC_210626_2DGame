@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region 欄位
-    [Header("移動速度"), Range(0,50)]
+    [Header("移動速度"), Range(0, 1000)]
     public float speed = 10.5f;
     [Header("跳躍高度"), Range(0, 3000)]
     public float jump = 100;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator ani;
     #endregion
-
+    
     #region 事件
     private void Start()
     {
@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
         //作用：取得此物件的2D剛體元件
         rig = GetComponent<Rigidbody2D>();
     }
-    
-    //一秒約執行 60 次
+
+    // 一秒約執行 60 次
     private void Update()
     {
         GetPlayerInputHorizontal();
@@ -41,6 +41,21 @@ public class Player : MonoBehaviour
     {
         Move(hValue);
     }
+
+    [Header("檢查地板區域：位移與半徑")]
+    public Vector3 groundOffset;
+    [Range(0, 2)]
+    public float groundRadius = 0.5f;
+
+    // 繪製圖示事件：輔助開發者用，僅會顯示在編輯器 Unity 內
+    private void OnDrawGizmos()
+    {
+        // 先決定顏色再繪製圖示
+        Gizmos.color = new Color(1, 0, 0, 0.3f);    // 半透明紅色
+        // 繪製球體(中心點，半徑)
+        Gizmos.DrawSphere(transform.position + groundOffset, groundRadius);   
+    }
+
     #endregion
 
     #region 方法
@@ -70,6 +85,7 @@ public class Player : MonoBehaviour
     /// <param name="horizontal">左右數值</param>
     private void Move(float horizontal)
     {
+        /** 第一種移動方式：自訂重力
         // 區域變數:在方法內的欄位，有區域性，僅限於此方法內存取
         //transform 此物件的 Transform 變形元件
         //posMove = 角色當前座標+ 玩家輸入的水平值
@@ -77,6 +93,10 @@ public class Player : MonoBehaviour
         Vector2 posMove = transform.position + new Vector3(horizontal, -gravity, 0) * speed * Time.fixedDeltaTime;
         // 剛體.移動座標(要前往的座標)
         rig.MovePosition(posMove);
+        */
+
+        /** 第二種移動方式：使用專案內的重力 - 較緩慢*/
+        rig.velocity = new Vector2(horizontal * speed * Time.fixedDeltaTime, rig.velocity.y);
     }
 
     /// <summary>
@@ -102,8 +122,20 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        // 如果 玩家 按下 空白建 角色就往上跳躍
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Vector2 參數可以使用 Vector3 代入，程式會自動把 Z 軸取消
+        // << 位移運算子
+        // 指定圖層語法：1 << 圖層編號
+        Collider2D hit = Physics2D.OverlapCircle(transform.position + groundOffset, groundRadius, 1 << 6);
+
+        // 如果 碰到物件存在 就代表在地面上 否則 就代表不在地面上
+        // 判斷式如果只有 一個結束符號； 可以省略大括號
+        if (hit) isGround = true;
+        else isGround = false;
+
+        print("碰到的物件：" + hit.name);
+
+        // 如果 在地板上 並且 玩家 按下 空白建 角色就往上跳躍
+        if (isGround && Input.GetKeyDown(KeyCode.Space))
         {
             rig.AddForce(new Vector2(0, jump));
         }
