@@ -853,8 +853,8 @@ GameObject:
   - component: {fileID: 733310226}
   - component: {fileID: 733310230}
   - component: {fileID: 733310229}
-  - component: {fileID: 733310231}
   - component: {fileID: 733310232}
+  - component: {fileID: 733310233}
   m_Layer: 0
   m_Name: wizard
   m_TagString: Untagged
@@ -983,29 +983,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &733310231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733310225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df4cea8c42c17f4bac7f70aea289a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  attack: 20
-  speed: 100
-  v2RandomIdle: {x: 1, y: 5}
-  v2RandomWalk: {x: 3, y: 6}
-  state: 0
-  checkForwardOffset: {x: 0.7, y: -0.7, z: 0}
-  checkForwardRadius: 0.2
-  scores: 0a000000140000001e000000
-  hits: []
-  hitResult: []
 --- !u!82 &733310232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1102,6 +1079,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &733310233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733310225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c26a60a125b9e46b41380483175921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  attack: 20
+  speed: 100
+  v2RandomIdle: {x: 1, y: 5}
+  v2RandomWalk: {x: 3, y: 6}
+  state: 0
+  checkForwardOffset: {x: 0.7, y: -0.7, z: 0}
+  checkForwardRadius: 0.2
+  checkAttackOffset: {x: 1.5, y: 0}
+  checkAttackSize: {x: 2, y: 2, z: 0.1}
 --- !u!4 &738606597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6072222906865643434, guid: bcfad16823be28546bc343d99c4485d3, type: 3}
