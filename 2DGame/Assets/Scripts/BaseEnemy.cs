@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// 敵人基底類別
@@ -28,6 +29,11 @@ public class BaseEnemy : MonoBehaviour
     // 將私人欄位顯示在屬性面板上
     [SerializeField]
     public StateEnemy state;
+
+    [Header("檢查前方是否有障礙物或地板球體")]
+    public Vector3 checkForwardOffset;
+    [Range(0, 1)]
+    public float checkForwardRadius = 0.3f;
     #endregion
 
     #region 欄位：私人
@@ -68,6 +74,7 @@ public class BaseEnemy : MonoBehaviour
 
     private void Update()
     {
+        CheckForward();
         CheckState();
     }
 
@@ -75,9 +82,66 @@ public class BaseEnemy : MonoBehaviour
     {
         WalkInFixedUpdate();
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 0.3f, 0.3f, 0.3f);
+        // transform.right 當前物件的右方 (2D 模式為前方，紅色箭頭)
+        // transform.up 當前物件的上方 (綠色箭頭)
+        Gizmos.DrawSphere(
+            transform.position +
+            transform.right * checkForwardOffset.x +
+            transform.up * checkForwardOffset.y,
+            checkForwardRadius);
+    }
     #endregion
 
+    public int[] scores;
+    // 認識陣列
+    // 語法：類型後方加上中括號，例如：int[]、float[]、string[]、Vector2[]
+    public Collider2D[] hits;
+    /// <summary>
+    /// 存放前方是否有不包含地板、跳台的物件
+    /// </summary>
+    public Collider2D[] hitResult;
+
     #region 方法
+    /// <summary>
+    /// 檢查前方：是否有地板或障礙物
+    /// </summary>
+    private void CheckForward()
+    {
+        hits = Physics2D.OverlapCircleAll(
+            transform.position +
+            transform.right * checkForwardOffset.x +
+            transform.up * checkForwardOffset.y,
+            checkForwardRadius);
+
+        // 兩種情況都要轉向，避免撞到障礙物以及掉落
+        // 1. 陣列內有不是 地板 或 不是 跳台的物件 - 有障礙物
+        // 2. 陣列內是空的 - 沒有地方站立會掉落
+        // 查詢語言 LinQ：可以查詢陣列資料，例如：是否包含地板、是否有資料等等...
+
+        hitResult = hits.Where(x => x.name != "BG" && x.name != "platform" && x.name !="主角" && x.name !="可穿透跳台").ToArray();
+
+        // 陣列為空值：陣列數量為零
+        // 如果 碰撞數量為零 (前方沒有地方站立) 或者 碰撞結果大於零 (前方有障礙物) 都要轉向
+        if (hits.Length == 0 || hitResult.Length > 0)
+        {
+            TurnDirection();
+        }
+    }
+
+    /// <summary>
+    /// 轉向
+    /// </summary>
+    private void TurnDirection()
+    {
+        float y = transform.eulerAngles.y;
+        if (y == 0) transform.eulerAngles = Vector3.up * 180;
+        else transform.eulerAngles = Vector3.zero;
+    }
+
     /// <summary>
     /// 檢查狀態
     /// </summary>
@@ -109,7 +173,7 @@ public class BaseEnemy : MonoBehaviour
         if(timerIdle < timeIdle)                                        // 如果 計時器 < 等待時間
         {
             timerIdle += Time.deltaTime;                                // 累加時間
-            ani.SetBool("走路開關", false);                              // 關閉走路開關：等待動畫
+            ani.SetBool("walk switch", false);                              // 關閉走路開關：等待動畫
         }
         else                                                            // 否則
         {
@@ -128,7 +192,7 @@ public class BaseEnemy : MonoBehaviour
         if (timerWalk < timeWalk)
         {
             timerWalk += Time.deltaTime;
-            ani.SetBool("走路開關", true);                              // 開啟走路開關：走路動畫
+            ani.SetBool("walk switch", true);                              // 開啟走路開關：走路動畫
         }
         else
         {

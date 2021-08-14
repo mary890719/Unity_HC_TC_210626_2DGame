@@ -940,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733310225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.73739, y: -1.9342625, z: 0}
+  m_LocalPosition: {x: 3.92, y: 0.96, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1001,6 +1001,11 @@ MonoBehaviour:
   v2RandomIdle: {x: 1, y: 5}
   v2RandomWalk: {x: 3, y: 6}
   state: 0
+  checkForwardOffset: {x: 0.7, y: -0.7, z: 0}
+  checkForwardRadius: 0.2
+  scores: 0a000000140000001e000000
+  hits: []
+  hitResult: []
 --- !u!82 &733310232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1350,7 +1355,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 2.0034676, y: 4.969372, z: 0}
   m_MaxChunkCount: 16
@@ -10233,11 +10238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6072222906865643434, guid: bcfad16823be28546bc343d99c4485d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.472887
+      value: 10.12
       objectReference: {fileID: 0}
     - target: {fileID: 6072222906865643434, guid: bcfad16823be28546bc343d99c4485d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.30845714
+      value: 3.37
       objectReference: {fileID: 0}
     - target: {fileID: 6072222906865643434, guid: bcfad16823be28546bc343d99c4485d3, type: 3}
       propertyPath: m_LocalPosition.z
