@@ -74,8 +74,6 @@ public class Player : MonoBehaviour
         //水平值 = 輸入.取得軸向(軸向名稱)
         //作用：取得玩家按下水平按鍵的值，按右為1，按左為-1，沒按為0
         hValue = Input.GetAxis("Horizontal");
-        //print("玩家水平值" + hValue);
-
     }
 
     [Header("重力"), Range(0.1f, 10)]
@@ -139,8 +137,6 @@ public class Player : MonoBehaviour
         //設定動畫參數 與 是否在地面上 相反
         ani.SetBool("jump switch", !isGround);
 
-        print("碰到的物件：" + hit.name);
-
         // 如果 在地板上 並且 玩家 按下 空白建 角色就往上跳躍
         if (isGround && Input.GetKeyDown(KeyCode.Space))
         {
@@ -166,8 +162,8 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Attack()
     {
-        // 如果 按下 左鍵 啟動觸發參數
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        // 如果 不是攻擊中 並且 按下 左鍵 才可以攻擊 啟動觸發參數
+        if (!isAttack && Input.GetKeyDown(KeyCode.Mouse0))
         {
             isAttack = true;
             ani.SetTrigger("attack trigger");
@@ -176,10 +172,17 @@ public class Player : MonoBehaviour
         // 如果按下左鍵攻擊中就開始累加時間
         if(isAttack)
         {
-            timer += Time.deltaTime;
-            print("攻擊後累加時間：" + timer);
+            if(timer < cd)
+            {
+                timer += Time.deltaTime;
+                print("攻擊後累加時間：" + timer);
+            }
+            else
+            {
+                timer = 0;
+                isAttack = false;
+            }           
         }
-
     }
 
     /// <summary>
