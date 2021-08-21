@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [Header("跳躍高度"), Range(0, 3000)]
     public float jump = 100;
     [Header("血量"), Range(0, 200)]
-    public float HP = 100;
+    public float hp = 100;
     [Header("是否在地板上"), Tooltip("是否在地板上")]
     public bool isGround;
     [Header("攻擊冷卻"), Range(0, 5)]
@@ -43,6 +43,15 @@ public class Player : MonoBehaviour
     /// </summary>
     private float hpMax;
 
+    [Header("攻擊區域的位移與大小")]
+    public Vector2 checkAttackOffset;
+    public Vector3 checkAttackSize;
+
+    /// <summary>
+    /// 攝影機控制類別
+    /// </summary>
+    private CameraControl cameraControl;
+
     private void Start()
     {
         //GetComponet<類型>() 泛型方法，可以指定任何類型
@@ -50,10 +59,12 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
 
-        hpMax = HP;
+        hpMax = hp;
 
         textHp = GameObject.Find("文字血量").GetComponent<Text>();
         imgHp = GameObject.Find("血條").GetComponent<Image>();
+
+
     }
 
     // 一秒約執行 60 次
@@ -80,7 +91,14 @@ public class Player : MonoBehaviour
         // 先決定顏色再繪製圖示
         Gizmos.color = new Color(1, 0, 0, 0.3f);    // 半透明紅色
         // 繪製球體(中心點，半徑)
-        Gizmos.DrawSphere(transform.position + groundOffset, groundRadius);   
+        Gizmos.DrawSphere(transform.position + groundOffset, groundRadius);
+
+        Gizmos.color = new Color(1, 0.3f, 0.1f, 0.3f);
+        Gizmos.DrawCube(
+            transform.position +
+            transform.right * checkAttackOffset.x +
+            transform.up * checkAttackOffset.y,
+            checkAttackSize);
     }
 
     #endregion
@@ -166,6 +184,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    [Header("攻擊力"), Range(0, 1000)]
+    public float attack = 20;
+
     /// <summary>
     /// 攻擊計時器
     /// </summary>
@@ -186,6 +207,21 @@ public class Player : MonoBehaviour
         {
             isAttack = true;
             ani.SetTrigger("attack trigger");
+
+            // 判定攻擊區域是否有打到 8 號敵人圖層物件
+            Collider2D hit = Physics2D.OverlapBox(transform.position +
+            transform.right * checkAttackOffset.x +
+            transform.up * checkAttackOffset.y,
+            checkAttackSize, 0, 1 << 8);
+
+            // 擊中物件存在時 對其造成傷害
+            if(hit)
+            {
+                hit.GetComponent<BaseEnemy>().Hurt(attack);     // 敵人 受傷
+                StartCoroutine(cameraControl.ShakeEffect());    // 攝影機 控制
+            }
+
+
         }
 
         // 如果按下左鍵攻擊中就開始累加時間
@@ -209,12 +245,12 @@ public class Player : MonoBehaviour
     /// <param name="damage">造成的傷害</param>
     public void Hurt(float damage)
     {
-        HP -= damage;                           // 血量扣除傷害值
+        hp -= damage;                           // 血量扣除傷害值
 
-        if (HP <= 0) Dead();                    // 如果 血量 <= 0 就 死亡
+        if (hp <= 0) Dead();                    // 如果 血量 <= 0 就 死亡
 
-        textHp.text = "HP" + HP;                // 文字血量.文字內容 = "HP" + 血量
-        imgHp.fillAmount = HP / hpMax;          // 血條.填滿數值 = hp / hpMax
+        textHp.text = "HP" + hp;                // 文字血量.文字內容 = "HP" + 血量
+        imgHp.fillAmount = hp / hpMax;          // 血條.填滿數值 = hp / hpMax
     }
 
     /// <summary>
@@ -222,7 +258,7 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Dead()
     {
-        HP = 0;                                 // 血量歸零
+        hp = 0;                                 // 血量歸零
         ani.SetBool("dead switch", true);       // 死亡動畫
         enabled = false;                        // 關閉此腳本
     }
@@ -233,7 +269,39 @@ public class Player : MonoBehaviour
     /// <param name="propName">吃到的道具名稱</param>
     private void EatProp(string propName)
     {
-
+        switch(propName)
+        {
+            case "蘋果":
+                Destroy(goPropHit);                 // 刪除(物件，延遲時間)
+                hp += 10;
+                textHp.text = "HP" + hp;            // 更新介面
+                imgHp.fillAmount = hp / hpMax;
+                break;
+            default:
+                break;
+        }
     }
     #endregion
+
+    /// <summary>
+    /// 儲存碰撞物件資訊
+    /// </summary>
+    private GameObject goPropHit;
+
+    // 碰撞事件：
+    // 1. 兩個碰撞物件都要有Collider
+    // 2. 並且其中一個要有Rigidbody
+    // 3. 兩個都沒有勾 Is Trigger
+    // Enter 事件：碰撞開始執行一次
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        goPropHit = collision.gameObject;
+        EatProp(collision.gameObject.tag);
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        EatProp(collision.gameObject.name);
+    }*/
 }

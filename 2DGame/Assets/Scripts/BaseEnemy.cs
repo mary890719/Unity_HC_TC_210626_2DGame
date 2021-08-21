@@ -41,6 +41,10 @@ public class BaseEnemy : MonoBehaviour
     public float[] attackDelay;
     [Header("攻擊完成後隔多久恢復原本狀態"), Range(0, 5)]
     public float afterAttackRestoreOriginal = 1;
+    [Header("掉落道具資料：道具、機率")]
+    public GameObject goProp;
+    [Range(0, 1)]
+    public float propProbability;
 
     // 將私人欄位顯示在屬性面板上
     [SerializeField]
@@ -78,6 +82,7 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     private Collider2D[] hitResult;
     #endregion
+
     /// <summary>
     /// 玩家類別
     /// </summary>
@@ -86,6 +91,8 @@ public class BaseEnemy : MonoBehaviour
     /// 攻擊區域的碰撞：保存玩家是否進入以及玩家碰撞資訊
     /// </summary>
     protected Collider2D hit;
+
+
 
     #region 事件
     private void Start()
@@ -103,15 +110,15 @@ public class BaseEnemy : MonoBehaviour
         #endregion
     }
 
-    private void Update()
-    {
-        CheckForward();
-        CheckState();
-    }
-
     private void FixedUpdate()
     {
         WalkInFixedUpdate();
+    }
+
+    protected virtual void Update()
+    {
+        CheckForward();
+        CheckState();
     }
 
     // 父類別的成員如果希望子類別父寫必須遵循：
@@ -131,7 +138,7 @@ public class BaseEnemy : MonoBehaviour
     }
     #endregion
 
-    #region 方法
+    #region 方法：私人
     /// <summary>
     /// 檢查前方：是否有地板或障礙物
     /// </summary>
@@ -199,6 +206,7 @@ public class BaseEnemy : MonoBehaviour
         if (timerAttack < cdAttack)
         {
             timerAttack += Time.deltaTime;
+            ani.SetBool("walk switch", false);
         }
         else
         {
@@ -277,6 +285,45 @@ public class BaseEnemy : MonoBehaviour
         else transform.eulerAngles = Vector2.zero;
     }
     #endregion
+
+    #region 方法：公開
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    /// <param name="damage"></param>
+    public void Hurt(float damage)
+    {
+        hp -= damage;
+        ani.SetTrigger("hit trigger");
+
+        if (hp <= 0) Dead();
+    }
+    #endregion
+
+    /// <summary>
+    /// 死亡：死亡動畫、狀態、關閉腳本、碰撞器、加速度以及剛體凍結
+    /// </summary>
+    private void Dead()
+    {
+        hp = 0;
+        ani.SetBool("dead switch", true);
+        state = StateEnemy.dead;
+        GetComponent<CapsuleCollider2D>().enabled = false;      // 關閉碰撞器
+        rig.velocity = Vector3.zero;                            // 加速度歸零
+        rig.constraints = RigidbodyConstraints2D.FreezeAll;     // 剛體凍結全部
+        Dropprop();
+        enabled = false;
+    }
+
+    /// <summary>
+    /// 死亡後呼叫掉落道具方法，機率性掉落
+    /// </summary>
+    private void Dropprop()
+    {
+        // 生成(物件、座標、角度)
+        // Quaternion.identity 零角度 = Vector3.zero
+        Instantiate(goProp, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+    }
 }
 
 // 定義列舉

@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: "\u651D\u5F71\u6A5F"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +301,9 @@ MonoBehaviour:
   speed: 10
   nameTarger: "\u4E3B\u89D2"
   limitHorizontal: {x: -1, y: 46}
+  shakeValue: 0.1
+  shakeCount: 5
+  shakeInterval: 0.03
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1075,7 +1078,7 @@ GameObject:
   - component: {fileID: 733310229}
   - component: {fileID: 733310232}
   - component: {fileID: 733310233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,11 +1321,13 @@ MonoBehaviour:
   v2RandomWalk: {x: 3, y: 6}
   checkForwardOffset: {x: 0.7, y: -0.7, z: 0}
   checkForwardRadius: 0.2
-  cdAttack: 3
+  cdAttack: 2.5
   attackDelay:
   - 0.2
   - 0.2
   afterAttackRestoreOriginal: 0.7
+  goProp: {fileID: 5749519228608256394, guid: 5b63495a339ecad48ba9fdc0ce8eade0, type: 3}
+  propProbability: 0.5
   state: 0
   checkAttackOffset: {x: 3, y: 0}
   checkAttackSize: {x: 4, y: 2, z: 0.1}
@@ -2882,7 +2887,7 @@ GameObject:
   - component: {fileID: 1970425543}
   - component: {fileID: 1970425542}
   - component: {fileID: 1970425544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u4E3B\u89D2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3024,12 +3029,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   jump: 600
-  HP: 100
+  hp: 100
   isGround: 0
   cd: 2
   gravity: 0.1
   groundOffset: {x: 0, y: -2.4, z: 0}
   groundRadius: 0.1
+  checkAttackOffset: {x: 2, y: -1.5}
+  checkAttackSize: {x: 3, y: 2, z: 1}
+  attack: 20
 --- !u!1 &2103106156
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,13 @@ public class NearEnemy : BaseEnemy
             transform.up * checkAttackOffset.y,
             checkAttackSize);
     }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        CheckPlayerInAttackArea();
+    }
     #endregion
 
     #region ¤èªk
