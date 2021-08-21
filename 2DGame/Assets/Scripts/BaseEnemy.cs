@@ -29,11 +29,20 @@ public class BaseEnemy : MonoBehaviour
     public Vector3 checkForwardOffset;
     [Range(0, 1)]
     public float checkForwardRadius = 0.3f;
+    [Range(0.5f, 5)]
+    /// <summary>
+    /// 攻擊冷卻時間
+    /// </summary>
+    public float cdAttack = 3;
+    [Header("第一次攻擊延遲"), Range(0.5f, 5)]
+    public float attackDelayFirst = 0.5F;
 
     // 將私人欄位顯示在屬性面板上
     [SerializeField]
     protected StateEnemy state;
     #endregion
+
+    private float timerAttack;
 
     #region 欄位：私人
     private Rigidbody2D rig;
@@ -65,6 +74,8 @@ public class BaseEnemy : MonoBehaviour
     private Collider2D[] hitResult;
     #endregion
 
+    protected Player player;
+
     #region 事件
     private void Start()
     {
@@ -72,6 +83,8 @@ public class BaseEnemy : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         aud = GetComponent<AudioSource>();
+
+        GameObject.Find("主角").GetComponent<Player>();
         #endregion
 
         #region 初始值設定
@@ -167,13 +180,6 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    [Range(0.5f, 5)]
-    /// <summary>
-    /// 攻擊冷卻時間
-    /// </summary>
-    public float cdAttack = 3;
-    private float timerAttack;
-
     /// <summary>
     /// 攻擊狀態：執行攻擊並添加冷卻
     /// </summary>
@@ -196,7 +202,6 @@ public class BaseEnemy : MonoBehaviour
     {
         timerAttack = 0;
         ani.SetTrigger("attack trigger");
-        print("攻擊");
     }
 
     /// <summary>

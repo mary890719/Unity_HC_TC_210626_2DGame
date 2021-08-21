@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;                       // 引用 介面 API
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,15 @@ public class Player : MonoBehaviour
     public float HP = 100;
     [Header("是否在地板上"), Tooltip("是否在地板上")]
     public bool isGround;
+    [Header("攻擊冷卻"), Range(0, 5)]
+    public float cd = 2;
+    [Header("重力"), Range(0.1f, 10)]
+    public float gravity = 1;
+
+    [Header("檢查地板區域：位移與半徑")]
+    public Vector3 groundOffset;
+    [Range(0, 2)]
+    public float groundRadius = 0.5f;
 
     //私人欄位為不顯示
     //開啟屬性面板除錯模式 Debug 可以看到私人欄位
@@ -18,14 +28,32 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator ani;
     #endregion
-    
+
     #region 事件
+    /// <summary>
+    /// 文字血量
+    /// </summary>
+    private Text textHp;
+    /// <summary>
+    /// 血條
+    /// </summary>
+    private Image imgHp;
+    /// <summary>
+    /// 血量最大值：保存血量最大數值
+    /// </summary>
+    private float hpMax;
+
     private void Start()
     {
         //GetComponet<類型>() 泛型方法，可以指定任何類型
         //作用：取得此物件的2D剛體元件
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+
+        hpMax = HP;
+
+        textHp = GameObject.Find("文字血量").GetComponent<Text>();
+        imgHp = GameObject.Find("血條").GetComponent<Image>();
     }
 
     // 一秒約執行 60 次
@@ -44,10 +72,7 @@ public class Player : MonoBehaviour
         Move(hValue);
     }
 
-    [Header("檢查地板區域：位移與半徑")]
-    public Vector3 groundOffset;
-    [Range(0, 2)]
-    public float groundRadius = 0.5f;
+
 
     // 繪製圖示事件：輔助開發者用，僅會顯示在編輯器 Unity 內
     private void OnDrawGizmos()
@@ -75,9 +100,6 @@ public class Player : MonoBehaviour
         //作用：取得玩家按下水平按鍵的值，按右為1，按左為-1，沒按為0
         hValue = Input.GetAxis("Horizontal");
     }
-
-    [Header("重力"), Range(0.1f, 10)]
-    public float gravity = 1;
 
     /// <summary>
     /// 移動
@@ -144,9 +166,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    [Header("攻擊冷卻"), Range(0, 5)]
-    public float cd = 2;
-
     /// <summary>
     /// 攻擊計時器
     /// </summary>
@@ -175,8 +194,7 @@ public class Player : MonoBehaviour
             if(timer < cd)
             {
                 timer += Time.deltaTime;
-                print("攻擊後累加時間：" + timer);
-            }
+             }
             else
             {
                 timer = 0;
@@ -189,17 +207,24 @@ public class Player : MonoBehaviour
     /// 受傷
     /// </summary>
     /// <param name="damage">造成的傷害</param>
-    public void Damage(float damage)
+    public void Hurt(float damage)
     {
+        HP -= damage;                           // 血量扣除傷害值
 
+        if (HP <= 0) Dead();                    // 如果 血量 <= 0 就 死亡
+
+        textHp.text = "HP" + HP;                // 文字血量.文字內容 = "HP" + 血量
+        imgHp.fillAmount = HP / hpMax;          // 血條.填滿數值 = hp / hpMax
     }
 
     /// <summary>
-    /// 受傷
+    /// 死亡
     /// </summary>
     private void Dead()
     {
-
+        HP = 0;                                 // 血量歸零
+        ani.SetBool("dead switch", true);       // 死亡動畫
+        enabled = false;                        // 關閉此腳本
     }
 
     /// <summary>
