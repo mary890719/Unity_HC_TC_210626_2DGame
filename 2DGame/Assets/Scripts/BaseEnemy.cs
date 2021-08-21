@@ -34,8 +34,13 @@ public class BaseEnemy : MonoBehaviour
     /// 攻擊冷卻時間
     /// </summary>
     public float cdAttack = 3;
-    [Header("第一次攻擊延遲"), Range(0.5f, 5)]
-    public float attackDelayFirst = 0.5F;
+    // 陣列：保存相同類型的資料表格，擁有編號與值兩份資料
+    // 陣列語法：類型[]
+    // 例如：int[]、string[]、GameObject[]、Vector3[]
+    [Header("攻擊延遲，可自行設定數量"), Range(0, 5)]
+    public float[] attackDelay;
+    [Header("攻擊完成後隔多久恢復原本狀態"), Range(0, 5)]
+    public float afterAttackRestoreOriginal = 1;
 
     // 將私人欄位顯示在屬性面板上
     [SerializeField]
@@ -73,8 +78,14 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     private Collider2D[] hitResult;
     #endregion
-
+    /// <summary>
+    /// 玩家類別
+    /// </summary>
     protected Player player;
+    /// <summary>
+    /// 攻擊區域的碰撞：保存玩家是否進入以及玩家碰撞資訊
+    /// </summary>
+    protected Collider2D hit;
 
     #region 事件
     private void Start()
@@ -137,7 +148,7 @@ public class BaseEnemy : MonoBehaviour
         // 2. 陣列內是空的 - 沒有地方站立會掉落
         // 查詢語言 LinQ：可以查詢陣列資料，例如：是否包含地板、是否有資料等等...
 
-        hitResult = hits.Where(x => x.name != "BG" && x.name != "platform" && x.name !="主角" && x.name !="可穿透跳台").ToArray();
+        hitResult = hits.Where(x => x.name != "BG" && x.name != "platform" && x.name != "主角" && x.name != "可穿透跳台").ToArray();
 
         // 陣列為空值：陣列數量為零
         // 如果 碰撞數量為零 (前方沒有地方站立) 或者 碰撞結果大於零 (前方有障礙物) 都要轉向
@@ -210,7 +221,7 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     private void Idle()
     {
-        if(timerIdle < timeIdle)                                        // 如果 計時器 < 等待時間
+        if (timerIdle < timeIdle)                                        // 如果 計時器 < 等待時間
         {
             timerIdle += Time.deltaTime;                                // 累加時間
             ani.SetBool("walk switch", false);                              // 關閉走路開關：等待動畫
