@@ -16,14 +16,9 @@ public class BaseEnemy : MonoBehaviour
     public float attack = 20;
     [Range(1, 500)]
     public float speed = 1.5f;
-
-    /// <summary>
-    /// 隨機等待範圍
-    /// </summary>
+    [Tooltip("隨機等待範圍")]
     public Vector2 v2RandomIdle = new Vector2(1, 5);
-    /// <summary>
-    /// 隨機走路範圍
-    /// </summary>
+    [Tooltip("隨機走路範圍")]
     public Vector2 v2RandomWalk = new Vector2(3, 6);
     [Header("檢查前方是否有障礙物或地板球體")]
     public Vector3 checkForwardOffset;
@@ -46,12 +41,8 @@ public class BaseEnemy : MonoBehaviour
     [Range(0, 1)]
     public float propProbability;
 
-    // 將私人欄位顯示在屬性面板上
-    [SerializeField]
-    protected StateEnemy state;
+   
     #endregion
-
-    private float timerAttack;
 
     #region 欄位：私人
     private Rigidbody2D rig;
@@ -73,6 +64,10 @@ public class BaseEnemy : MonoBehaviour
     /// 走路用計時器
     /// </summary>
     private float timerWalk;
+    /// <summary>
+    /// 攻擊用計時器
+    /// </summary>
+    private float timerAttack;
 
     // 認識陣列
     // 語法：類型後方加上中括號，例如：int[]、float[]、string[]、Vector2[]
@@ -83,6 +78,9 @@ public class BaseEnemy : MonoBehaviour
     private Collider2D[] hitResult;
     #endregion
 
+    #region 將私人欄位顯示在屬性面板上
+    [SerializeField]
+    protected StateEnemy state;
     /// <summary>
     /// 玩家類別
     /// </summary>
@@ -91,8 +89,7 @@ public class BaseEnemy : MonoBehaviour
     /// 攻擊區域的碰撞：保存玩家是否進入以及玩家碰撞資訊
     /// </summary>
     protected Collider2D hit;
-
-
+    #endregion
 
     #region 事件
     private void Start()
@@ -284,21 +281,6 @@ public class BaseEnemy : MonoBehaviour
         if (random == 0) transform.eulerAngles = Vector2.up * 180;
         else transform.eulerAngles = Vector2.zero;
     }
-    #endregion
-
-    #region 方法：公開
-    /// <summary>
-    /// 受傷
-    /// </summary>
-    /// <param name="damage"></param>
-    public void Hurt(float damage)
-    {
-        hp -= damage;
-        ani.SetTrigger("hit trigger");
-
-        if (hp <= 0) Dead();
-    }
-    #endregion
 
     /// <summary>
     /// 死亡：死亡動畫、狀態、關閉腳本、碰撞器、加速度以及剛體凍結
@@ -324,6 +306,21 @@ public class BaseEnemy : MonoBehaviour
         // Quaternion.identity 零角度 = Vector3.zero
         Instantiate(goProp, transform.position + Vector3.up * 1.5f, Quaternion.identity);
     }
+    #endregion
+
+    #region 方法：公開
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    /// <param name="damage"></param>
+    public void Hurt(float damage)
+    {
+        hp -= damage;
+        ani.SetTrigger("hit trigger");
+
+        if (hp <= 0) Dead();
+    }
+    #endregion
 }
 
 // 定義列舉

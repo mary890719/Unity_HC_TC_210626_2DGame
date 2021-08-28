@@ -83,8 +83,6 @@ public class Player : MonoBehaviour
         Move(hValue);
     }
 
-
-
     // 繪製圖示事件：輔助開發者用，僅會顯示在編輯器 Unity 內
     private void OnDrawGizmos()
     {
