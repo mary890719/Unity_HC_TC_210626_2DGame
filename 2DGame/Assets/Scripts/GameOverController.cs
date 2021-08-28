@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 遊戲結束控制器：
@@ -26,6 +27,28 @@ public class GameOverController : MonoBehaviour
     /// 是否遊戲結束
     /// </summary>
     private bool isGameOver;
+
+    private void Update()
+    {
+        Replay();
+        Quit();
+    }
+
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    private void Replay()
+    {
+        if (isGameOver && Input.GetKeyDown(kcReplay)) SceneManager.LoadScene("遊戲場景");
+    }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    private void Quit()
+    {
+        if (isGameOver && Input.GetKeyDown(kcQuit)) Application.Quit();
+    }
 
     /// <summary>
     /// 顯示遊戲結束畫面

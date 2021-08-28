@@ -258,7 +258,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &429282167
 RectTransform:
@@ -1353,7 +1353,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932398516}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1403,7 +1403,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932398516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d485cf28b69985940af46a13a264a557, type: 2}
   m_CullingMode: 0
@@ -1440,7 +1440,7 @@ AudioSource:
   m_GameObject: {fileID: 1033255985}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6116824707172699770, guid: 602ae865a93817145948c97dd8923fd2, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9845745630995e5459d3ff55d521deeb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3010,9 +3010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2a40e3a788f54449e37a7e1e529991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aniFinal: {fileID: 0}
-  textFainalTitla: {fileID: 0}
-  stringWin: "\u4F60\u5DF2\u7D93\u6210\u529F\u64CA\u6BBA\u6240\u6709\u602A\u7269\uFF0C\n\u53EF\u4EE5\u5F80\u524D\u7E7C\u7E8C\u4E86\u3002"
+  aniFinal: {fileID: 932398521}
+  textFainalTitla: {fileID: 2056745593}
+  stringWin: "\u4F60\u5DF2\u7D93\u6210\u529F\u6BBA\u5149\u6240\u6709\u602A\u7269\uFF0C\n\u53EF\u4EE5\u5F80\u524D\u7E7C\u7E8C\u4E86\u3002"
   stringLose: "\u6311\u6230\u5931\u6557...\n\u518D\u6311\u6230\u4E00\u6B21\u5427\uFF01"
   kcReplay: 114
   kcQuit: 113
@@ -3024,7 +3024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927178968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 263.5861, y: 248.67578, z: -15.94461}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3147,6 +3147,7 @@ GameObject:
   - component: {fileID: 1970425543}
   - component: {fileID: 1970425542}
   - component: {fileID: 1970425544}
+  - component: {fileID: 1970425545}
   m_Layer: 7
   m_Name: "\u4E3B\u89D2"
   m_TagString: Untagged
@@ -3291,13 +3292,126 @@ MonoBehaviour:
   jump: 600
   hp: 100
   isGround: 0
-  cd: 2
   gravity: 0.1
   groundOffset: {x: 0, y: -2.4, z: 0}
   groundRadius: 0.1
+  cd: 2
+  attack: 100
   checkAttackOffset: {x: 2, y: -1.5}
   checkAttackSize: {x: 3, y: 2, z: 1}
-  attack: 100
+  onDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1927178969}
+        m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
+        m_MethodName: ShowGameOverView
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  soundJump: {fileID: 8300000, guid: 46449f69fe02cbc4788a79db084545d1, type: 3}
+  soundAttack: {fileID: 8300000, guid: 2968be7264da148478047a74f2043db2, type: 3}
+--- !u!82 &1970425545
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970425538}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8070140905290704901, guid: 602ae865a93817145948c97dd8923fd2, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1987933018
 GameObject:
   m_ObjectHideFlags: 0
@@ -8194,7 +8308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 85}
+  m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056745593
@@ -8219,10 +8333,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b8847fa1e69287248b5fe9232fbf9aa7, type: 3}
-    m_FontSize: 72
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 5
     m_MaxSize: 72
     m_Alignment: 3
     m_AlignByGeometry: 0
