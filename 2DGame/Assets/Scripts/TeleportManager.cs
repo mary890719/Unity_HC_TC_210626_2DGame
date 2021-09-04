@@ -13,7 +13,7 @@ public class TeleportManager : MonoBehaviour
     /// <summary>
     /// 所有怪物數量
     /// </summary>
-    public int countAllEnemy;
+    public static int countAllEnemy;
 
     // Unity Button 按鈕事件自行定義方式
     // 1. 引用 UnityEngine.Events API
